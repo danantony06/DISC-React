@@ -1,0 +1,37 @@
+.headerText{
+    display:flex;
+   font-family: DM-Sans;
+    height:75px;
+    
+  }
+
+.title{
+    margin-left:100px;
+    color:orange;
+    width: 700px;
+    font-size: 35px;
+}
+
+.navBar{
+    margin-top:40px;
+    display:flex;
+    color:orange;
+    font-size: 15px;
+    align-content: center;
+  }
+  
+
+  .pages{
+    margin: 5px;
+  }
+
+  #Profiles{
+    color:white;
+  }
+
+  .headerLine{
+    border-bottom: 5px solid white;
+    margin-bottom: 1%;
+    width:1730px;
+    margin-left: -280px;
+  }
