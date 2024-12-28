@@ -1,0 +1,25 @@
+#footerText{
+    margin-left:100px;
+    color: white;
+    font-size: 15px;
+    width: 800px;
+    margin-top: 21px;
+  }
+
+
+  .footerLine{
+    border-bottom: 5px solid black;
+   margin-bottom: 28px;
+   width:1730px;
+   margin-left: -280px;
+   
+ }
+
+ #socialMedia{
+    height: 40px;
+    width: 300px;
+  }
+
+  .footerInfo{
+    display:flex;
+  }
