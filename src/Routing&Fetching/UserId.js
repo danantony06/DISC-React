@@ -9,11 +9,10 @@ function UserId(){
     const [user,setUser] = useState(null);
 
     useEffect(() => {
-        fetch(`https://disc-assignment-5-users-api.onrender.com/api/users/${id}`)
+        fetch(`http://localhost:3004/users/${id}`)
         .then(response => response.json())
         .then(data => {
-            setUser(data);
-
+            setUser(data[0]);
     })
 
 },[id]);
@@ -33,7 +32,7 @@ if (!user) {
         <div className="profile-card">
         <span className = "line"> </span>
         <div className="profile-info">
-          <h3>{user.firstname} {user.lastname}</h3>
+          <h3>{user.first_name} {user.last_name}</h3>
           <h5>{user.email}</h5>
           <p className = "bio">{user.bio}</p>
           <h6>{user.major}</h6>

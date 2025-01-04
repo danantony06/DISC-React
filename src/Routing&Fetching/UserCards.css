@@ -2,8 +2,30 @@ body {
     font-family: DM-Sans;
     background-color: #1E1E1E;
     color: black;
+    height: 932px;
+    width: 1200px;
+    max-width: 1200px;
+    margin: 5px auto
+;
   }
-  
+
+.Label{
+  display: flex;
+  align-items: center;
+  gap: 120px; /* Adds spacing between the name and DOB */
+  margin: 0;
+}
+
+  #DOB{
+    font-size: small;
+  }
+.CardWrap {
+  display: grid;
+  height: 700px;
+  grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+  gap: 20px; /* Add spacing between cards */
+  padding: 20px;
+}
 
 .profile-card {
     display: flex;
