@@ -4,34 +4,49 @@ import Button from "../Components/Button.js";
 
 
 function CreateUser() {
-    const [firstname, setfirstname] = useState('');
-    const [lastname, setlastname] = useState('');
+    const [first_name, setfirstname] = useState('');
+    const [last_name, setlastname] = useState('');
     const [email, setemail] = useState('');
     const [bio, setbio] = useState('');
-    const [major, setmajor] = useState('');
-    const [gradyear, setgradyear] = useState('');
+    const [date_of_birth, setdob] = useState('');
     const [profilepic, setprofilepic] = useState(null);
 
   
     const handleSubmit = async (e) => {
-        console.log(firstname)
+        console.log(first_name)
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('firstName', firstname);
-        formData.append('lastName', lastname);
-        formData.append('email', email);
-        formData.append('bio', bio);
-        formData.append('major', major);
-        formData.append('graduationYear', gradyear);
-        formData.append('profilePicture', profilepic);
-        console.log(formData.getAll('bio'))
+        const userInfo = document.querySelector("#userinfo");
+        const formData = new FormData(userInfo);
+        // formData.append('first_name', first_name);
+        // formData.append('date_of_birth', date_of_birth);
+         //formData.append('last_name', last_name);
+        // formData.append('email', email);
+        // formData.append('bio', bio);
+        // formData.append('major', major);
+        // formData.append('graduationYear', gradyear);
+        // formData.append('profilePicture', profilepic);
+        //console.log(formData.getAll('first_name'))
+       // console.log(formData.getAll('date_of_birth'))
         
+        const formObject = Object.fromEntries(formData.entries());
+
+        console.log(formObject);
+
+        console.log('form data: ' + JSON.stringify(formData));
         try {
+          formData.forEach((value, key) => console.log(key, value));
+
+          console.log('form data: ' + JSON.stringify(formData));
+
             const response = await fetch(
-                "https://disc-assignment-5-users-api.onrender.com/api/users",
+                "http://localhost:3004/users/create",
                 {
                     method: 'POST',
-                    body: formData,
+                    headers: {
+                      'Content-Type': "application/json"
+                    },
+                    body: JSON.stringify(formObject)
+                    
                 }
             );
             if (response.ok) {
@@ -40,12 +55,9 @@ function CreateUser() {
                 setlastname('');
                 setemail('');
                 setbio('');
-                setmajor('');
-                setgradyear('');
+                setdob('');
                 setprofilepic(null);
             } else {
-                const errorText = await response.text();
-                console.error("Error response:", errorText);
                 alert('Failed to create user');
             }
         } catch (error) {
@@ -59,28 +71,24 @@ function CreateUser() {
 return(
 <form id="userinfo" onSubmit={handleSubmit}>
   <p>
-    <label htmlFor="firstname">Enter your First name:</label>
-    <input type="text" id="firstname" name="firstname" value = {firstname} onChange={(e) => setfirstname(e.target.value)} />
+    <label htmlFor="first_name">Enter your First name:</label>
+    <input type="text" id="first_name" name="first_name" value = {first_name} onChange={(e) => setfirstname(e.target.value)} />
   </p>
   <p>
-    <label htmlFor="lastname">Enter your Last name:</label>
-    <input type="text" id="Lastname" name="Lastname" value = {lastname} onChange={(e) => setlastname(e.target.value)}/>
+    <label htmlFor="last_name">Enter your Last name:</label>
+    <input type="text" id="last_name" name="last_name" value = {last_name} onChange={(e) => setlastname(e.target.value)}/>
   </p>
   <p>
     <label htmlFor="Email">Enter your Email:</label>
-    <input type="text" id="Email" name="Email" value = {email} onChange={(e) => setemail(e.target.value)}/>
+    <input type="text" id="email" name="email" value = {email} onChange={(e) => setemail(e.target.value)}/>
   </p>
   <p>
-    <label htmlFor="bio">Enter your Bio:</label>
-    <input type="text" id="Bio" name="Bio" value = {bio} onChange={(e) => setbio(e.target.value)}/>
+    <label htmlFor="date_of_birth">Enter your DOB:</label>
+    <input type="date" id="dob" name="date_of_birth" value = {date_of_birth} onChange={(e) => setdob(e.target.value)}/>
   </p>
   <p>
-    <label htmlFor="Major">Enter your Major:</label>
-    <input type="text" id="Major" name="Major" value = {major} onChange={(e) => setmajor(e.target.value)} />
-  </p>
-  <p>
-    <label htmlFor="Graduation Year">Enter your Graduation Year:</label>
-    <input type="text" id="Graduation" name="Graduation" value={gradyear} onChange={(e) => setgradyear(e.target.value)} />
+    <label htmlFor="Bio">Bio:</label>
+    <input type="text" id="Bio" name="bio" value={bio} onChange={(e) => setbio(e.target.value)} />
   </p>
   <p>
     <label htmlFor="avatar">Select a Profile Pic</label>

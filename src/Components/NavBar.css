@@ -21,17 +21,28 @@
   }
   
 
-  .pages{
-    margin: 5px;
-  }
-
-  #Profiles{
+  /* #Profiles{
     color:white;
-  }
+  } */
 
   .headerLine{
     border-bottom: 5px solid white;
     margin-bottom: 1%;
     width:1730px;
     margin-left: -280px;
+  }
+
+
+  .pages {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 5px;
+  }
+  
+  .pages:hover {
+    text-decoration: underline; 
+    color: #666;
   }
