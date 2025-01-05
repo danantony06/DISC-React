@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Button from "../Components/Button.js";
 import NavBar from '../Components/NavBar.js';
 import Footer from '../Components/Footer.js';
+import token from "./Login.js";
 
 
 function CreateUser() {
@@ -45,7 +46,9 @@ function CreateUser() {
                 {
                     method: 'POST',
                     headers: {
-                      'Content-Type': "application/json"
+                      'Content-Type': "application/json",
+                       'Authorization': `Bearer ${token}`
+                     
                     },
                     body: JSON.stringify(formObject)
                     

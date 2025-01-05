@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './Login.css';
 
 function Login(){
 
@@ -28,6 +29,7 @@ const handleSignIn = async (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
         body: JSON.stringify({ email, password }),
@@ -49,6 +51,7 @@ const handleSignIn = async (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
         body: JSON.stringify({ email, password }),
@@ -89,8 +92,8 @@ const handleSignIn = async (e) => {
 
 
   return (
-    <div style={{ padding: "20px", maxWidth: "500px", margin: "0 auto" }}>
-      <h1>Supabase Auth Demo</h1>
+    <div className = "LoginDiv" style={{ padding: "20px", maxWidth: "500px", paddingLeft: "20px" , color: "orange"}}>
+      <h1 className = "LoginTitle" >Welcome to Court Crew!</h1>
 
       {error && (
         <div
@@ -109,7 +112,7 @@ const handleSignIn = async (e) => {
 
       {!token ? (
         <div>
-          <h2>Welcome to the Auth Demo</h2>
+          
           <form
             style={{ display: "flex", flexDirection: "column", gap: "10px" }}
           >
