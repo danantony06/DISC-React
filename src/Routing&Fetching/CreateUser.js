@@ -1,6 +1,8 @@
 import './CreateUser.css';
 import React, { useState } from 'react';
 import Button from "../Components/Button.js";
+import NavBar from '../Components/NavBar.js';
+import Footer from '../Components/Footer.js';
 
 
 function CreateUser() {
@@ -69,33 +71,37 @@ function CreateUser() {
       
 
 return(
+  <div className= "FormContainer">
+    <NavBar/> 
 <form id="userinfo" onSubmit={handleSubmit}>
-  <p>
-    <label htmlFor="first_name">Enter your First name:</label>
+  <p className='FormText'>
+    <label htmlFor="first_name" className='FormLabel'>Enter your First name:</label>
     <input type="text" id="first_name" name="first_name" value = {first_name} onChange={(e) => setfirstname(e.target.value)} />
   </p>
-  <p>
-    <label htmlFor="last_name">Enter your Last name:</label>
+  <p className='FormText'>
+    <label htmlFor="last_name" className='FormLabel'>Enter your Last name:</label>
     <input type="text" id="last_name" name="last_name" value = {last_name} onChange={(e) => setlastname(e.target.value)}/>
   </p>
-  <p>
-    <label htmlFor="Email">Enter your Email:</label>
+  <p className='FormText'>
+    <label htmlFor="Email" className='FormLabel'>Enter your Email:</label>
     <input type="text" id="email" name="email" value = {email} onChange={(e) => setemail(e.target.value)}/>
   </p>
-  <p>
-    <label htmlFor="date_of_birth">Enter your DOB:</label>
+  <p className='FormText'>
+    <label htmlFor="date_of_birth" className='FormLabel'>Enter your DOB:</label>
     <input type="date" id="dob" name="date_of_birth" value = {date_of_birth} onChange={(e) => setdob(e.target.value)}/>
   </p>
-  <p>
-    <label htmlFor="Bio">Bio:</label>
+  <p className='FormText'>
+    <label htmlFor="Bio" className='FormLabel'>Bio:</label>
     <input type="text" id="Bio" name="bio" value={bio} onChange={(e) => setbio(e.target.value)} />
   </p>
   <p>
     <label htmlFor="avatar">Select a Profile Pic</label>
     <input type="file" id="ProfilePic" name="ProfilePic" onChange={(e) => setprofilepic(e.target.files[0])}/>
   </p>
-  <Button text = {"Submit Me"} />
+  <Button className = "SubmitButton" text = {"Submit Me"} />
 </form>
+<Footer />
+</div>
 );
 }
 export default CreateUser;

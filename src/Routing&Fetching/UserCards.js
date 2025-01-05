@@ -20,7 +20,7 @@ function Users(){
         <div>
         <NavBar/> 
 
-
+        <div className='Container'>
         <div className='CardWrap'>
         {users.map(user => (
         <div className="profile-card">
@@ -35,8 +35,10 @@ function Users(){
       </div>
       ))}
       </div>
+      
 
       <Footer/ >
+      </div>
       </div>
 
     );

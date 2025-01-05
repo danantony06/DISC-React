@@ -1,8 +1,8 @@
-
+import "./Button.js";
 
 function Button({text}){
     return(
-        <button>
+        <button className="SubmitButton">
         {text}
         </button>
     );
