@@ -25,7 +25,7 @@ function Login(){
 const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://api-iffvi7ahr-daniel-antonys-projects-582fc591.vercel.app/users/login", {
+      const response = await fetch("http://localhost:3004/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const handleSignIn = async (e) => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://api-iffvi7ahr-daniel-antonys-projects-582fc591.vercel.app/users/register", {
+      const response = await fetch("http://localhost:3004/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const handleSignIn = async (e) => {
 
   const fetchProtectedData = async () => {
     try {
-      const response = await fetch("https://api-iffvi7ahr-daniel-antonys-projects-582fc591.vercel.app/users/protected", {
+      const response = await fetch("http://localhost:3004/users/protected", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

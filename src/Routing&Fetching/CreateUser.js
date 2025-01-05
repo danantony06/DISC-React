@@ -42,7 +42,7 @@ function CreateUser() {
           console.log('form data: ' + JSON.stringify(formData));
 
             const response = await fetch(
-                "https://api-iffvi7ahr-daniel-antonys-projects-582fc591.vercel.app/users/create",
+                "http://localhost:3004/users/create",
                 {
                     method: 'POST',
                     headers: {

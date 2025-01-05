@@ -9,7 +9,7 @@ function UserId(){
     const [user,setUser] = useState(null);
 
     useEffect(() => {
-        fetch(`https://api-iffvi7ahr-daniel-antonys-projects-582fc591.vercel.app/users/${id}`)
+        fetch(`http://localhost:3004/users/${id}`)
         .then(response => response.json())
         .then(data => {
             setUser(data[0]);
