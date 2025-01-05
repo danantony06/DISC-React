@@ -8,7 +8,7 @@ function Users(){
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3004/users/profiles')
+        fetch('https://api-iffvi7ahr-daniel-antonys-projects-582fc591.vercel.app/users/profiles')
         .then(response => response.json())
         .then(data => {
             setUsers(data);
